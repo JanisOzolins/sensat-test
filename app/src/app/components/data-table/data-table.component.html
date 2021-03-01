@@ -20,7 +20,7 @@
       <th class="c-sensor-data-table__cell">Unit</th>
       <th class="c-sensor-data-table__cell">Date<span class="c-sensor-data-table__sort" (click)="sortByDate()"></span></th>
    </tr>
-   <tr *ngFor="let data of sensorData" class="c-sensor-data-table__row">
+   <tr *ngFor="let data of sensorData; trackBy:rowIdentity"  class="c-sensor-data-table__row">
       <td class="c-sensor-data-table__cell">{{ data.id }}</td>
       <td class="c-sensor-data-table__cell">{{ data.box_id }}</td>
       <td class="c-sensor-data-table__cell">{{ data.sensor_type }}</td>

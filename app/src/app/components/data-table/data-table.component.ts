@@ -24,6 +24,10 @@ export class DataTableComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
   }
 
+  rowIdentity(index: number, item: SensorData): string {
+    return item.box_id + item.id;
+ }
+
   filterResults(keyboardEvent: any): void {
     const searchTerm = keyboardEvent.target.value.toLowerCase();
     this.sensorData = this.originalSensorData.slice(0);
