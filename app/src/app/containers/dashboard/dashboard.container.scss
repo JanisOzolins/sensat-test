@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+$accent: #ff4943;
+$table-border: solid 1px #E0E0E0;
+$lightgrey: #fafafa;
 
 .c-dashboard {
    &__container {
@@ -16,5 +19,9 @@
       font-family: 'Open Sans', Arial, sans-serif;
       font-weight: bold;
       text-align: center;
+      background-color: $accent;
+      color: #fff;
+      margin: 0 auto 32px;
+      padding: 16px 0;
    }
 }

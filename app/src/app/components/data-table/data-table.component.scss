@@ -1,3 +1,7 @@
+$accent: #ff4943;
+$table-border: solid 1px #E0E0E0;
+$lightgrey: #fafafa;
+
 .c-sensor-data-table {
    display: flex;
    flex-direction: column;
@@ -13,17 +17,17 @@
    &__row {
       display: flex;
       flex-direction: row;
-      background-color: #fafafa;
-      border: solid 1px #E0E0E0;
+      background-color: $lightgrey;
+      border: $table-border;
       border-top: none;
 
       &:first-of-type {
-         border: solid 1px #E0E0E0;
+         border: $table-border;
       }
 
       &:hover {
-         background-color: #ff4943;
-         border: solid 1px #ff4943;
+         background-color: $accent;
+         border: solid 1px $accent;
          color: #fff;
       }
    }
