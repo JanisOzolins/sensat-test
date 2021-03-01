@@ -1,7 +1,7 @@
 <h1 class="c-dashboard__title">Sensor data dashboard</h1>
 
 <div class="c-dashboard__container">
-   <app-data-table *ngIf="!isLoading && sensorData.length > 0" [sensorData]="sensorData" [originalSensorData]="sensorData"></app-data-table>
+   <app-data-table *ngIf="!isLoading" [sensorData]="sensorData" [originalSensorData]="sensorData"></app-data-table>
    <div *ngIf="isLoading">Please wait, the data is loading...</div>
    <div *ngIf="!isLoading && sensorData.length === 0">Sorry but there are no records to show at this time.</div>
 </div>

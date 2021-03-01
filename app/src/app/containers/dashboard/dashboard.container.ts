@@ -12,7 +12,7 @@ export class DashboardContainer implements OnInit {
   sensorData: SensorData[] = [];
   stringArray: string[] = [];
   fileReader = new FileReader();
-  isLoading = false;
+  isLoading = true;
   lineNumber = 0;
 
   constructor(private http: HttpClient) {
@@ -33,7 +33,6 @@ export class DashboardContainer implements OnInit {
 
   parseAsSensorDataArray(): void {
     this.stringArray.forEach( (line, index) => {
-      if (index === 0) this.isLoading = true;
       if (index === this.stringArray.length - 1) this.isLoading = false;
       if (this.isLineValid(line)) {
         const parsedLine = JSON.parse(line);

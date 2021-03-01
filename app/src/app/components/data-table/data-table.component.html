@@ -4,7 +4,7 @@
    {{ data.name }} ~~~ {{ data.id }}
 </div> -->
 
-<input *ngIf="sensorData.length > 0"class="c-sensor-data-table__search" (keyup)="filterResults($event)">
+<input class="c-sensor-data-table__search" (keyup)="filterResults($event)">
 
 <table *ngIf="sensorData.length > 0" cellspacing="0" cellpadding="8" class="c-sensor-data-table">
    <tr class="c-sensor-data-table__row">
