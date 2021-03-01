@@ -1,12 +1,6 @@
+<input class="c-sensor-data-table__search" placeholder="Filter results by sensor type or name..." (keyup)="filterResults($event)">
 
-
-<!-- <div *ngFor="let data of sensorData">
-   {{ data.name }} ~~~ {{ data.id }}
-</div> -->
-
-<input class="c-sensor-data-table__search" (keyup)="filterResults($event)">
-
-<div class="table-wrapper">
+<div class="c-sensor-data-table__wrapper">
    <table *ngIf="sensorData.length > 0" cellspacing="0" cellpadding="8" class="c-sensor-data-table">
       <tr class="c-sensor-data-table__row">
          <th class="c-sensor-data-table__cell">ID</th>
@@ -36,6 +30,6 @@
             <td class="c-sensor-data-table__cell">{{ data.reading_ts | date:'M/d/yy, h:mm a' }}</td>
          </tr>
       </ng-container>
-      <a (click)="showMore()" class="c-sensor-data-table__show-more">Show more</a>
    </table>
 </div>
+<a (click)="showMore()" class="c-sensor-data-table__show-more">Show more</a>
