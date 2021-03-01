@@ -6,31 +6,36 @@
 
 <input class="c-sensor-data-table__search" (keyup)="filterResults($event)">
 
-<table *ngIf="sensorData.length > 0" cellspacing="0" cellpadding="8" class="c-sensor-data-table">
-   <tr class="c-sensor-data-table__row">
-      <th class="c-sensor-data-table__cell">ID</th>
-      <th class="c-sensor-data-table__cell">Box ID</th>
-      <th class="c-sensor-data-table__cell">Sensor type<span class="c-sensor-data-table__sort" (click)="sortBySensorType()"></span></th>
-      <th class="c-sensor-data-table__cell">Name</th>
-      <th class="c-sensor-data-table__cell">Range (lower)</th>
-      <th class="c-sensor-data-table__cell">Range (upper)</th>
-      <th class="c-sensor-data-table__cell">Longitude</th>
-      <th class="c-sensor-data-table__cell">Latitude</th>
-      <th class="c-sensor-data-table__cell">Reading</th>
-      <th class="c-sensor-data-table__cell">Unit</th>
-      <th class="c-sensor-data-table__cell">Date<span class="c-sensor-data-table__sort" (click)="sortByDate()"></span></th>
-   </tr>
-   <tr *ngFor="let data of sensorData; trackBy:rowIdentity"  class="c-sensor-data-table__row">
-      <td class="c-sensor-data-table__cell">{{ data.id }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.box_id }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.sensor_type }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.name }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.range_l }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.range_u }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.longitude }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.latitude }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.reading }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.unit }}</td>
-      <td class="c-sensor-data-table__cell">{{ data.reading_ts | date:'M/d/yy, h:mm a' }}</td>
-   </tr>   
-</table>
+<div class="table-wrapper">
+   <table *ngIf="sensorData.length > 0" cellspacing="0" cellpadding="8" class="c-sensor-data-table">
+      <tr class="c-sensor-data-table__row">
+         <th class="c-sensor-data-table__cell">ID</th>
+         <th class="c-sensor-data-table__cell">Box ID</th>
+         <th class="c-sensor-data-table__cell">Sensor type<span class="c-sensor-data-table__sort" (click)="sortBySensorType()"></span></th>
+         <th class="c-sensor-data-table__cell">Name</th>
+         <th class="c-sensor-data-table__cell">Range (lower)</th>
+         <th class="c-sensor-data-table__cell">Range (upper)</th>
+         <th class="c-sensor-data-table__cell">Longitude</th>
+         <th class="c-sensor-data-table__cell">Latitude</th>
+         <th class="c-sensor-data-table__cell">Reading</th>
+         <th class="c-sensor-data-table__cell">Unit</th>
+         <th class="c-sensor-data-table__cell">Date<span class="c-sensor-data-table__sort" (click)="sortByDate()"></span></th>
+      </tr>
+      <ng-container *ngFor="let data of sensorData; trackBy:rowIdentity; let i = index;">
+         <tr *ngIf="i < showRows" class="c-sensor-data-table__row">
+            <td class="c-sensor-data-table__cell">{{ data.id }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.box_id }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.sensor_type }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.name }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.range_l }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.range_u }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.longitude }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.latitude }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.reading }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.unit }}</td>
+            <td class="c-sensor-data-table__cell">{{ data.reading_ts | date:'M/d/yy, h:mm a' }}</td>
+         </tr>
+      </ng-container>
+      <a (click)="showMore()" class="c-sensor-data-table__show-more">Show more</a>
+   </table>
+</div>

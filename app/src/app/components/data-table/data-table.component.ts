@@ -15,6 +15,8 @@ export class DataTableComponent implements OnInit, OnChanges {
 
   sortColumn = 'DATE';
   sortDirection = 'ASC';
+  showRows = 20;
+  chunkSize = 20;
 
   constructor() { }
 
@@ -26,15 +28,21 @@ export class DataTableComponent implements OnInit, OnChanges {
 
   rowIdentity(index: number, item: SensorData): string {
     return item.box_id + item.id;
- }
+  }
+
+  showMore(): void {
+    this.showRows += this.chunkSize;
+  }
 
   filterResults(keyboardEvent: any): void {
-    const searchTerm = keyboardEvent.target.value.toLowerCase();
-    this.sensorData = this.originalSensorData.slice(0);
+    setTimeout(() => {
+      const searchTerm = keyboardEvent.target.value.toLowerCase();
+      this.sensorData = this.originalSensorData.slice(0);
 
-    if (!!searchTerm) {
-      this.sensorData = this.sensorData.filter( data => data.sensor_type.toLowerCase().includes(searchTerm) || data.name.toLowerCase().includes(searchTerm));
-    }
+      if (!!searchTerm) {
+        this.sensorData = this.sensorData.filter( data => data.sensor_type.toLowerCase().includes(searchTerm) || data.name.toLowerCase().includes(searchTerm));
+      }
+    }, 500)
   }
 
   sortByDate(): void {

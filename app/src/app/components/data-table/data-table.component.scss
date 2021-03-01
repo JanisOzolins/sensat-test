@@ -14,6 +14,15 @@ $lightgrey: #fafafa;
       padding: 8px;
    }
 
+   &__show-more {
+      text-align: center;
+      padding: 8px 16px;
+      background-color: $accent;
+      margin: 16px auto;
+      color: #fff;
+      width: 270px;
+   }
+
    &__row {
       display: flex;
       flex-direction: row;
