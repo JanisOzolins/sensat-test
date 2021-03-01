@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.c-dashboard {
+   &__container {
+      font-family: 'Open Sans', Arial, sans-serif;
+      width: 95%;
+      margin: 0 auto;
+
+      @media (min-width: 1141px) {
+         width: 100%;
+         max-width: 1140px;
+      }
+   }
+
+   &__title {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: bold;
+      text-align: center;
+   }
+}

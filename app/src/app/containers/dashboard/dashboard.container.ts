@@ -4,11 +4,13 @@ import { SensorData } from 'src/app/model/sensor-data.model';
 
 @Component({
   selector: 'app-dashboard-container',
-  templateUrl: './dashboard.container.html'
+  templateUrl: './dashboard.container.html',
+  styleUrls: ['./dashboard.container.scss']
 })
 export class DashboardContainer implements OnInit {
 
   sensorData: SensorData[] = [];
+  stringArray: string[] = [];
   fileReader = new FileReader();
   lineNumber = 0;
 
@@ -20,15 +22,23 @@ export class DashboardContainer implements OnInit {
       .subscribe(res => {
         this.fileReader.onloadend = () => {
           const temp = this.fileReader.result as string;
-          const stringArray = temp?.split('\n');
-          this.sensorData = stringArray.filter(line => this.isLineValid(line)).map( line => {
-            const parsedLine = JSON.parse(line);
-            return parsedLine as SensorData;
-          })
+          this.stringArray = temp?.split('\n');
+          this.parseAsSensorDataArray();
         }
 
         this.fileReader.readAsText(res); 
       });
+  }
+
+  parseAsSensorDataArray(): void {
+    this.stringArray.forEach( (line, index) => {
+      console.log(index);
+      if (this.isLineValid(line)) {
+        const parsedLine = JSON.parse(line);
+        this.sensorData.push(parsedLine)
+      }
+    });
+
   }
 
   isLineValid(line: string): boolean {
