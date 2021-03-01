@@ -1,4 +1,11 @@
-# Test notes
+# Notes
+
+## How to run
+
+1. Clone the application onto your computer
+2. Install all dependencies with `npm i` 
+3. Run the app with `ng serve`
+4. it should be accessible via http://localhost:4200
 
 ## External libs used
 
