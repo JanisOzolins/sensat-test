@@ -1,27 +1,13 @@
-# App
+# Test notes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+## External libs used
 
-## Development server
+- TimSort: to improve data sorting speed
+- Date-fns: to allow better date comparison 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Areas for improvement
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Performance improvements reading 8000+ records
+- Sort indicators should indicate what is the current sort order and rotate accordingly in the UI
+- Ideally table should be paginated - but that would most likely mean backend pagination & sorting
+- Design improvements such as mobile designs etc.
