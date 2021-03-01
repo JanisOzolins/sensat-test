@@ -34,7 +34,7 @@ export class DashboardContainer implements OnInit {
   parseAsSensorDataArray(): void {
     this.stringArray.forEach( (line, index) => {
       if (index === 0) this.isLoading = true;
-      if (index === this.stringArray.length - 1) this.isLoading = fasle;
+      if (index === this.stringArray.length - 1) this.isLoading = false;
       if (this.isLineValid(line)) {
         const parsedLine = JSON.parse(line);
         this.sensorData.push(parsedLine)
