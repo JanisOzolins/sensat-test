@@ -38,11 +38,14 @@ $lightgrey: #fafafa;
 
       &:first-of-type {
          border: $table-border;
+         background-color: $accent;
+         color: #fff;
       }
 
-      &:hover {
+      &:not(:first-of-type):hover {
          background-color: $accent;
          border: solid 1px $accent;
+         border-top: none;
          color: #fff;
       }
    }
@@ -56,6 +59,7 @@ $lightgrey: #fafafa;
    &__sort {
       &::after {
          content: '\25BC';
+
       }
    }
 }
