@@ -15,8 +15,8 @@ export class DataTableComponent implements OnInit, OnChanges {
 
   sortColumn = 'DATE';
   sortDirection = 'ASC';
-  showRows = 20;
-  chunkSize = 20;
+  // showRows = 20;
+  // chunkSize = 20;
 
   constructor() { }
 
@@ -30,9 +30,9 @@ export class DataTableComponent implements OnInit, OnChanges {
     return item.box_id + item.id;
   }
 
-  showMore(): void {
-    this.showRows += this.chunkSize;
-  }
+  // showMore(): void {
+  //   this.showRows += this.chunkSize;
+  // }
 
   filterResults(keyboardEvent: any): void {
     setTimeout(() => {
